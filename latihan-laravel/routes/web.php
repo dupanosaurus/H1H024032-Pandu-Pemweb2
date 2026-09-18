@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MahasiswaWebController;
+
+Route::get('/mahasiswa-data', [MahasiswaWebController::class, 'index'])->name('mahasiswa.data');
 
 Route::get('/', function () {
     return 'Nama: Pandu Adi Utama | NIM: H1H024032';
@@ -43,3 +46,9 @@ Route::get('/data-matakuliah', [MatakuliahController::class, 'index'])
 
 Route::get('/data-matakuliah/{kode}', [MatakuliahController::class, 'show'])
     ->name('matakuliah.show');
+
+Route::get('/mahasiswa-data/{id}/detail', [MahasiswaWebController::class, 'detail'])
+    ->name('mahasiswa.detail');
+
+Route::get('/mahasiswa-ipk-tertinggi', [MahasiswaWebController::class, 'ipkTertinggi'])
+    ->name('mahasiswa.ipk.tertinggi');
